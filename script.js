@@ -257,6 +257,7 @@ function transferAll(command) {
   }
 }
 
+let count = 0;
 transferContainer1.addEventListener("click", (e) => {
   if (e.target.checked) {
     for (let key in transferChecker) {
@@ -267,7 +268,7 @@ transferContainer1.addEventListener("click", (e) => {
         }
       }
     }
-    checkerRightBtn.removeAttribute("disabled");
+    count++;
   } else if (!e.target.checked && e.target.dataset?.language) {
     for (let key in transferChecker) {
       for (let key1 in transferChecker[key]) {
@@ -277,39 +278,49 @@ transferContainer1.addEventListener("click", (e) => {
         }
       }
     }
-
-    checkerRightBtn.setAttribute("disabled", true);
+    count--;
   }
+
+  count === 0 ? checkerRightBtn.setAttribute("disabled", true) : checkerRightBtn.removeAttribute("disabled");
+  
 });
 
+let count1;
+
 transferContainer2.addEventListener("click", (e) => {
+
   if (e.target.checked) {
     for (let key in transferChecker) {
       for (let key1 in transferChecker[key]) {
         if (key1 === e.target.dataset?.language) {
           transferChecker[key][key1].container1 = true;
           transferChecker[key][key1].container2 = false;
+          count1++;
         }
       }
     }
-    checkerLeftBtn.removeAttribute("disabled");
+    
   } else if (!e.target.checked && e.target.dataset?.language) {
     for (let key in transferChecker) {
       for (let key1 in transferChecker[key]) {
         if (key1 === e.target.dataset?.language) {
           transferChecker[key][key1].container1 = false;
           transferChecker[key][key1].container2 = true;
+          count1--;
         }
       }
     }
-    checkerLeftBtn.setAttribute("disabled", true);
   }
+
+  count1 === 0 ? checkerLeftBtn.setAttribute("disabled", true) : checkerLeftBtn.removeAttribute("disabled");
 });
 
 function transferCheckedRight() {
   transferContainer2.innerHTML = "";
   transferContainer1.innerHTML = "";
   checkerRightBtn.setAttribute("disabled", true);
+  count1 = 0;
+  count = 0;
   paintUi(transferChecker);
 }
 
@@ -317,6 +328,8 @@ function transferCheckedLeft() {
   transferContainer2.innerHTML = "";
   transferContainer1.innerHTML = "";
   checkerLeftBtn.setAttribute("disabled", true);
+  count = 0;
+  count1  = 0;
   paintUi(transferChecker);
 }
 
