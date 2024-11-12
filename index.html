@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Transfer list</title>
+</head>
+<body>
+    
+    <main class="transfer-container-main">
+        <div class="transfer-container-1">
+         
+        </div>
+        <div class="transfer-btns-container">
+            <button type="button" onclick='transferAll("left")' id="transfer-all-left"> << </button>
+            <button type="button" onclick='transferCheckedLeft()' id="leftChecker" disabled> < </button>
+            <button type="button" onclick='transferCheckedRight()' id="rightChecker" disabled> > </button>
+            <button type="button" onclick='transferAll("right")' id="transfer-all-right"> >> </button>
+        </div>
+        <div class="transfer-container-2"></div>
+    </main>
+    <a href="counter.html">Go to Counter</a>
+
+    <script src="./script.js"></script>
+</body>
+</html>

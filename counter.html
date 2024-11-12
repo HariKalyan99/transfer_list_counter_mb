@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./counter.css">
+    <title>Counter</title>
+</head>
+<body>
+    
+
+
+    <main class="counter-main">
+        <span class="show-number">0</span>
+        <div class="counter-btn">
+            <button type="button" onclick="count('+')">+</button>
+            <button type="button" onclick="count('-')">-</button>
+        </div>
+        <div class="inc-and-dec-by">
+            <label for="inc-dec-vals">Increment/Decrement by:</label>
+            <input type="number" placeholder="enter a number" id="inc-dec-vals">
+        </div>
+
+        <button id="reset-btn">Reset</button>
+        <a href="index.html">Go to transfer-list</a>
+    </main>
+
+
+    <script src="counter.js"></script>
+</body>
+</html>
